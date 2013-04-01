@@ -3,11 +3,11 @@ require 'base64'
 module MtGox
   module Request
     def get(path, options={})
-      request(:get, path, options)
+      request(:get, 'https://data.mtgox.com' + path, options)
     end
 
     def post(path, options={})
-      request(:post, path, options)
+      request(:post, 'https://mtgox.com' + path, options)
     end
 
     private
