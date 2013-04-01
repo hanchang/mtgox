@@ -45,11 +45,23 @@ typing `btc` in your bash shell:
     require 'rubygems'
     require 'mtgox'
 
+    puts MtGox.ticker
+    <MtGox::Ticker:0x000000029b8258
+     @buy=93.01005,
+     @high=93.8,
+     @low=91.0,
+     @previous_price=nil,
+     @price=93.44999,
+     @sell=93.44999,
+     @volume=20920.0,
+     @vwap=92.756087768>
+
     # Fetch the latest price for 1 BTC in USD
     puts MtGox.ticker.sell
 
     # Fetch open asks
     puts MtGox.asks
+    [#<MtGox::Ask:0x00000002c1f0c8 @price=93.44, @amount=1.30994231>, #<MtGox::Ask:0x00000002c1f050 @price=93.45, @amount=7.47625374>, #<MtGox::Ask:0x00000002c1efd8 @price=93.4588, @amount=8.0>, #<MtGox::Ask:0x00000002c1ef60 @price=93.465, @amount=10.0>, #<MtGox::Ask:0x00000002c1eee8 @price=93.46699, @amount=0.47015735>, #<MtGox::Ask:0x00000002c1ee70 @price=93.467, @amount=11.3277389>, #<MtGox::Ask:0x00000002c1edf8 @price=93.478, @amount=52.12313332>, #<MtGox::Ask:0x00000002c1ed80 @price=93.48799, @amount=5.1760007>, #<MtGox::Ask:0x00000002c1ed08 @price=93.497, @amount=2.99681883>, #<MtGox::Ask:0x00000002c1ec90 @price=93.498, @amount=10.0>, #<MtGox::Ask:0x00000002c1ec18 @price=93.4989, @amount=20.26516861>]
 
     # Fetch open bids
     puts MtGox.bids
@@ -65,6 +77,8 @@ typing `btc` in your bash shell:
 
     # Fetch your current balance
     puts MtGox.balance
+    [#<MtGox::Balance:0x000000014dc2f8 @amount=0.0, @currency="BTC">,
+     #<MtGox::Balance:0x000000014dc1e0 @amount=0.0, @currency="USD">]
 
     # Place a limit order to buy one bitcoin for $0.011
     MtGox.buy! 1.0, 0.011
